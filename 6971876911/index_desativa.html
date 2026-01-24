@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento Falso</title>
+
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stamp-wrapper {
+    transform: rotate(-25deg) scale(0.9);
+}
+
+.stamp {
+    color: #c00000;
+    border: 6px double #c00000;
+    padding: 16px 32px;
+
+    font-size: clamp(22px, 7vw, 64px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+
+    opacity: 0.75;
+    text-align: center;
+    white-space: nowrap;
+
+    box-shadow: 0 0 10px rgba(192,0,0,0.4);
+    position: relative;
+}
+
+/* textura */
+.stamp::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events: none;
+}
+
+/* ajustes extras só para telas muito pequenas */
+@media (max-width: 400px) {
+    .stamp-wrapper {
+        transform: rotate(-25deg) scale(0.75);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="stamp-wrapper">
+        <div class="stamp">DOCUMENTO FALSO</div>
+    </div>
+</div>
+
+</body>
+</html>
